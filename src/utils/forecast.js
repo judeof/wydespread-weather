@@ -2,7 +2,7 @@ const request = require('request')
 const config = require('./config.js')
 const utils = require('./geocode.js')
 
-const forecast = (latitude, longitude, callback) => {
+module.exports = (latitude, longitude, callback) => {
 
     const url = config.getWeatherURL() + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude)
     request({ url, json: true }, (error, { body } = {}) => {
@@ -18,4 +18,3 @@ const forecast = (latitude, longitude, callback) => {
     })
 }
 
-module.exports = forecast

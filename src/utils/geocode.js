@@ -3,7 +3,8 @@
 const request = require('request')
 const config = require('./config.js')
 
-const geocode = (address, callback) => {
+ //this exports method makes the function to be referenced in the calling app using the const variablename 
+ module.exports = (address, callback) => {
     const url = config.getGeoCodeURL() + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoianVkZW9mIiwiYSI6ImNrczFzbWxjdDF3engydm44MjR3dGI4djEifQ.HtSaODvrFN2n_XYn6x25oQ&limit=1'
     request({ url, json: true }, (error, {body}={}) => {
         //either error(OS/low level only) or response has a value at any time. Both 
@@ -26,5 +27,3 @@ const geocode = (address, callback) => {
         }
     })
 }
-
-module.exports = geocode //this exports method makes the function to be referenced in the calling app using the const variablename 
