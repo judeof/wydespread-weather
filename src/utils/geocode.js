@@ -1,7 +1,7 @@
 
 
 const request = require('request')
-const config = require('./config.js')
+const config = require('./urlmapper.js')
 
  //this exports method makes the function to be referenced in the calling app using the const variablename 
  module.exports = (address, callback) => {
