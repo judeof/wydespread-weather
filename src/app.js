@@ -10,6 +10,8 @@ const app = express()
 const hbs = require('hbs')
 const partialsPath = path.join(__dirname, '../templates/partials')
 hbs.registerPartials(partialsPath)
+//set port for either heroku to use or for local run
+const port = process.env.PORT||3001
 
 //set public directory path containing website assets
 const publicDirectoryPath = '../public'
@@ -105,6 +107,6 @@ app.get('*', (req, res) => {
 })
 
 //start webserver
-app.listen(3001, () => {
-    console.log('Server is up on port 3001')
+app.listen(port, () => {
+    console.log('Server is up on port', port)
 })
